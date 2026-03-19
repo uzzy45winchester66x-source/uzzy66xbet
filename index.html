@@ -3,152 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uzzy Games | One Piece Edition</title>
+    <title>Uzzy Games | Cyber Admin Edition</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial Black', Gadget, sans-serif;
-            /* Fundo One Piece Estável */
-            background: url('https://wallpapercave.com/wp/wp1810625.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            background-color: #111;
-        }
+        :root { --neon-blue: #00ffff; --neon-pink: #ff00ff; --cyber-black: #050505; --gold: #f1c40f; }
+        body { background: var(--cyber-black); color: white; font-family: 'Courier New', monospace; margin: 0; overflow-x: hidden; }
+        
+        /* Background Cyberpunk Estático */
+        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+               background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80');
+               background-size: cover; z-index: -1; }
 
-        .overlay {
-            background: rgba(0, 0, 0, 0.7);
-            min-height: 100vh;
-            padding: 20px;
-        }
+        /* TELA DE LOGIN */
+        #login-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000;
+                        display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; }
+        
+        .login-box { border: 2px solid var(--neon-pink); padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 0 20px var(--neon-pink); }
+        .cyber-input { background: transparent; border: 1px solid var(--neon-blue); color: var(--neon-blue); padding: 12px; margin: 10px; width: 280px; outline: none; }
+        .btn-glow { background: var(--neon-pink); border: none; color: white; padding: 15px 30px; cursor: pointer; font-weight: bold; text-transform: uppercase; }
 
-        header {
-            text-align: center;
-            padding: 20px;
-            border-bottom: 5px solid #f1c40f;
-        }
+        /* SITE PRINCIPAL */
+        #main-site { display: none; padding: 20px; }
+        header { border-bottom: 2px solid var(--neon-blue); padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2.5rem; text-shadow: 0 0 10px var(--neon-pink); font-weight: bold; }
 
-        .logo-uzzy {
-            font-size: 3.5rem;
-            color: #f1c40f;
-            text-shadow: 4px 4px #c0392b;
-            margin: 0;
-        }
+        /* STATUS BAR */
+        .wallet-info { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; border-left: 5px solid var(--gold); }
 
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 30px auto;
-        }
+        /* JOGOS */
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 30px 0; }
+        .game-card { background: rgba(0,0,0,0.6); border: 1px solid var(--neon-blue); padding: 15px; text-align: center; transition: 0.3s; }
+        .game-card:hover { border-color: var(--neon-pink); transform: translateY(-5px); }
 
-        .game-card {
-            background: #222;
-            border: 3px solid #f1c40f;
-            border-radius: 15px;
-            overflow: hidden;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .game-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #f1c40f;
-        }
-
-        .game-thumb {
-            width: 100%;
-            height: 150px;
-            background: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-
-        .btn-jogar {
-            display: block;
-            background: #f1c40f;
-            color: #000;
-            padding: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-        }
-
-        .btn-jogar:hover {
-            background: #fff;
-        }
-
-        .category-title {
-            grid-column: 1 / -1;
-            font-size: 1.5rem;
-            color: #f1c40f;
-            border-left: 5px solid #c0392b;
-            padding-left: 10px;
-        }
+        /* LOJA */
+        .market { border-top: 3px solid var(--neon-pink); padding-top: 30px; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .item-card { background: #111; border: 1px solid var(--gold); padding: 20px; text-align: center; border-radius: 10px; }
+        .price-tag { color: var(--gold); font-size: 1.3rem; margin: 10px 0; }
+        
+        /* PAINEL ADM */
+        #admin-panel { display: none; background: #200; border: 2px solid red; padding: 20px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-<div class="overlay">
+<div class="bg"></div>
+
+<div id="login-screen">
+    <div class="login-box">
+        <h1 style="color:var(--neon-blue)">UZZY GAMES</h1>
+        <p>SISTEMA CYBERNET v2.0</p>
+        <input type="text" id="userInput" class="cyber-input" placeholder="Usuário ou Telefone">
+        <input type="password" id="passInput" class="cyber-input" placeholder="Senha">
+        <br>
+        <button class="btn-glow" onclick="auth()">INICIAR SESSÃO</button>
+    </div>
+</div>
+
+<div id="main-site">
     <header>
-        <div>⚓ 🏴‍☠️ 🍖</div>
-        <h1 class="logo-uzzy">UZZY GAMES</h1>
-        <p>A Grande Era dos Jogos começou!</p>
+        <div class="logo">UZZY GAMES</div>
+        <div class="wallet-info">
+            🛰️ <span id="userNameDisplay"></span> | 💰 <span id="coinBalance" style="color:var(--gold)">0</span> UC
+        </div>
     </header>
 
     <div class="game-grid">
-        
-        <div class="category-title">🎯 Jogos de Arco e Ação</div>
-        
-        <div class="game-card">
-            <div class="game-thumb">🏹</div>
-            <p>Ragdoll Throw</p>
-            <a href="https://www.crazygames.com/game/ragdoll-throw-challenge" target="_blank" class="btn-jogar">JOGAR AGORA</a>
-        </div>
-        
-        <div class="game-card">
-            <div class="game-thumb">🏫</div>
-            <p>Monster School</p>
-            <a href="https://www.crazygames.com/game/herobrine-vs-monster-school" target="_blank" class="btn-jogar">JOGAR AGORA</a>
-        </div>
-
-        <div class="game-card">
-            <div class="game-thumb">❤️</div>
-            <p>Love Archer</p>
-            <a href="https://www.crazygames.com/game/love-archer" target="_blank" class="btn-jogar">JOGAR AGORA</a>
-        </div>
-
-        <div class="category-title">🌟 Especiais Uzzy</div>
-
-        <div class="game-card">
-            <div class="game-thumb">⛏️</div>
-            <p>Minecraft</p>
-            <a href="https://classic.minecraft.net" target="_blank" class="btn-jogar">JOGAR AGORA</a>
-        </div>
-
-        <div class="game-card">
-            <div class="game-thumb">🦔</div>
-            <p>Sonic</p>
-            <a href="https://poki.com.br/g/sonic-dash" target="_blank" class="btn-jogar">JOGAR AGORA</a>
-        </div>
-
-        <div class="game-card">
-            <div class="game-thumb">🍄</div>
-            <p>Mario</p>
-            <a href="https://www.supermario-game.com/" target="_blank" class="btn-jogar">JOGAR AGORA</a>
-        </div>
-
+        <script>
+            for(let i=1; i<=50; i++) {
+                document.write(`<div class="game-card"><h3>LVL ${i}</h3><button onclick="addUC(2)" style="background:var(--neon-blue); border:none; padding:8px; cursor:pointer;">JOGAR (+2 UC)</button></div>`);
+            }
+        </script>
     </div>
 
-    <footer style="text-align: center; margin-top: 50px;">
-        <p>Uzzy Games © 2026</p>
-    </footer>
+    <div class="market">
+        <h2 style="color:var(--neon-pink)">🛒 CYBER MARKET - RESGATE</h2>
+        <div class="market-grid">
+            <div class="item-card">
+                <h3>🍎 BLOX FRUITS MAX</h3>
+                <p class="price-tag">100.000,00 UC</p>
+                <button onclick="buy('Blox Fruits Max')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR</button>
+            </div>
+            <div class="item-card">
+                <h3>💸 PIX R$ 10,00</h3>
+                <p class="price-tag">100.000,00 UC</p>
+                <button onclick="buy('Pix R$ 10')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR</button>
+            </div>
+            <div class="item-card">
+                <h3>💸 PIX R$ 25,00</h3>
+                <p class="price-tag">500.000,00 UC</p>
+                <button onclick="buy('Pix R$ 25')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-panel">
+        <h2 style="color:red">☢️ TERMINAL DO ADMINISTRADOR</h2>
+        <p>Saldo Mestre: 1.000.000.000.000.000.000.000.000.00 UC</p>
+        <button onclick="localStorage.clear(); location.reload();" style="background:white; color:black; padding:10px;">RESETAR SISTEMA</button>
+    </div>
 </div>
+
+<script>
+    let currentCoins = localStorage.getItem('uzzyUC') ? parseFloat(localStorage.getItem('uzzyUC')) : 0;
+    
+    function auth() {
+        const u = document.getElementById('userInput').value;
+        const p = document.getElementById('passInput').value;
+
+        // SEU LOGIN DE ADM
+        if(u === 'uzzy66x' && p === '299119') {
+            currentCoins = 1000000000000000000000000;
+            document.getElementById('admin-panel').style.display = 'block';
+            enterSite(u);
+        } else if(u !== "" && p !== "") {
+            enterSite(u);
+        } else {
+            alert("Erro de autenticação!");
+        }
+    }
+
+    function enterSite(name) {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('main-site').style.display = 'block';
+        document.getElementById('userNameDisplay').innerText = name;
+        updateUI();
+    }
+
+    function addUC(amt) {
+        currentCoins += amt;
+        updateUI();
+    }
+
+    function updateUI() {
+        document.getElementById('coinBalance').innerText = currentCoins.toLocaleString('pt-BR');
+        localStorage.setItem('uzzyUC', currentCoins);
+    }
+
+    function buy(item) {
+        alert(`Pedido de ${item} enviado ao ADM Uzzy!\nEnvie o print do seu saldo para confirmar.`);
+    }
+</script>
 
 </body>
 </html>
