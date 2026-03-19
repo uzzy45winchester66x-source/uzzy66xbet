@@ -8,158 +8,145 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Papel de parede One Piece no fundo */
-            background: url('https://wallpaperaccess.com/full/17351.jpg') no-repeat center center fixed;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            /* Fundo One Piece Estável */
+            background: url('https://wallpapercave.com/wp/wp1810625.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
+            background-color: #111;
         }
 
-        .container {
-            background: rgba(0, 0, 0, 0.75); /* Escurece o fundo para destacar os jogos */
+        .overlay {
+            background: rgba(0, 0, 0, 0.7);
             min-height: 100vh;
             padding: 20px;
         }
 
         header {
             text-align: center;
-            padding: 30px;
-            border-bottom: 4px solid #f1c40f;
-            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 5px solid #f1c40f;
         }
 
-        /* Nome do site decorado */
         .logo-uzzy {
             font-size: 3.5rem;
             color: #f1c40f;
-            text-shadow: 4px 4px #c0392b, 0 0 15px #f1c40f;
+            text-shadow: 4px 4px #c0392b;
             margin: 0;
-            letter-spacing: 5px;
-        }
-
-        .one-piece-icons {
-            font-size: 1.5rem;
-            color: #fff;
         }
 
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
-            max-width: 1300px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 30px auto;
         }
 
         .game-card {
-            background: #1a1a1a;
-            border: 2px solid #333;
-            border-radius: 12px;
+            background: #222;
+            border: 3px solid #f1c40f;
+            border-radius: 15px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        /* Efeito ao passar o mouse */
-        .game-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            border-color: #f1c40f;
-            box-shadow: 0 10px 20px rgba(241, 196, 15, 0.4);
-        }
-
-        .game-card img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-        }
-
-        .game-card .title {
-            padding: 10px;
             text-align: center;
-            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #f1c40f;
+        }
+
+        .game-thumb {
+            width: 100%;
+            height: 150px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .btn-jogar {
+            display: block;
+            background: #f1c40f;
+            color: #000;
+            padding: 10px;
+            text-decoration: none;
             font-weight: bold;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-jogar:hover {
+            background: #fff;
         }
 
         .category-title {
             grid-column: 1 / -1;
             font-size: 1.5rem;
-            margin-top: 20px;
-            border-left: 5px solid #e74c3c;
-            padding-left: 15px;
-            color: #ecf0f1;
+            color: #f1c40f;
+            border-left: 5px solid #c0392b;
+            padding-left: 10px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="overlay">
     <header>
-        <div class="one-piece-icons">⚓ 🏴‍☠️ 🍖</div>
+        <div>⚓ 🏴‍☠️ 🍖</div>
         <h1 class="logo-uzzy">UZZY GAMES</h1>
         <p>A Grande Era dos Jogos começou!</p>
     </header>
 
     <div class="game-grid">
         
-        <div class="category-title">🎯 Jogos de Arco e Ação (Seus Prints)</div>
+        <div class="category-title">🎯 Jogos de Arco e Ação</div>
         
         <div class="game-card">
-            <img src="https://img.crazygames.com/ragdoll-throw-challenge/20220926101135/ragdoll-throw-challenge-cover.png" alt="Ragdoll Throw">
-            <div class="title">Ragdoll Throw</div>
+            <div class="game-thumb">🏹</div>
+            <p>Ragdoll Throw</p>
+            <a href="https://www.crazygames.com/game/ragdoll-throw-challenge" target="_blank" class="btn-jogar">JOGAR AGORA</a>
         </div>
         
         <div class="game-card">
-            <img src="https://img.crazygames.com/herobrine-vs-monster-school/20220914093842/herobrine-vs-monster-school-cover.png" alt="Herobrine vs Monster School">
-            <div class="title">Monster School</div>
+            <div class="game-thumb">🏫</div>
+            <p>Monster School</p>
+            <a href="https://www.crazygames.com/game/herobrine-vs-monster-school" target="_blank" class="btn-jogar">JOGAR AGORA</a>
         </div>
 
         <div class="game-card">
-            <img src="https://img.crazygames.com/love-archer/20230124101532/love-archer-cover.png" alt="Love Archer">
-            <div class="title">Love Archer</div>
+            <div class="game-thumb">❤️</div>
+            <p>Love Archer</p>
+            <a href="https://www.crazygames.com/game/love-archer" target="_blank" class="btn-jogar">JOGAR AGORA</a>
+        </div>
+
+        <div class="category-title">🌟 Especiais Uzzy</div>
+
+        <div class="game-card">
+            <div class="game-thumb">⛏️</div>
+            <p>Minecraft</p>
+            <a href="https://classic.minecraft.net" target="_blank" class="btn-jogar">JOGAR AGORA</a>
         </div>
 
         <div class="game-card">
-            <img src="https://img.crazygames.com/archery-master/20220822101532/archery-master-cover.png" alt="Archery Master">
-            <div class="title">Archery Master</div>
+            <div class="game-thumb">🦔</div>
+            <p>Sonic</p>
+            <a href="https://poki.com.br/g/sonic-dash" target="_blank" class="btn-jogar">JOGAR AGORA</a>
         </div>
 
         <div class="game-card">
-            <img src="https://img.crazygames.com/stickman-archery/20220822101532/stickman-archery-cover.png" alt="Last Archer">
-            <div class="title">Last Archer</div>
-        </div>
-
-        <div class="game-card">
-            <img src="https://img.crazygames.com/bowman/20220822101532/bowman-cover.png" alt="Bowman">
-            <div class="title">Bowman</div>
-        </div>
-
-        <div class="category-title">🌟 Favoritos do Uzzy</div>
-
-        <div class="game-card">
-            <img src="[attachment_1](attachment)" alt="Minecraft">
-            <div class="title">Minecraft World</div>
-        </div>
-
-        <div class="game-card">
-            <img src="[attachment_0](attachment)" alt="Mario">
-            <div class="title">Super Mario Art</div>
-        </div>
-
-        <div class="game-card">
-            <img src="[attachment_2](attachment)" alt="Sonic">
-            <div class="title">Sonic Speed</div>
-        </div>
-
-        <div class="game-card">
-            <img src="https://img.crazygames.com/noob-vs-pro-boss-item/20220822101532/noob-vs-pro-boss-item-cover.png" alt="Noob vs Monsters">
-            <div class="title">Noob VS Monsters</div>
+            <div class="game-thumb">🍄</div>
+            <p>Mario</p>
+            <a href="https://www.supermario-game.com/" target="_blank" class="btn-jogar">JOGAR AGORA</a>
         </div>
 
     </div>
 
-    <footer style="text-align: center; margin-top: 50px; color: #7f8c8d;">
-        <p>Uzzy Games © 2026 - Rumo ao One Piece!</p>
+    <footer style="text-align: center; margin-top: 50px;">
+        <p>Uzzy Games © 2026</p>
     </footer>
 </div>
 
