@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body style="background:black;color:white;text-align:center">
+
+<h1 style="color:purple">uzzy66xbet 💜</h1>
+
+<input id="email" placeholder="email"><br><br>
+<input id="valor" placeholder="valor"><br><br>
+<input id="odd" placeholder="odd"><br><br>
+
+<button onclick="apostar()">Apostar</button>
+
+<p id="res"></p>
+
+<script>
+async function apostar() {
+  const email = document.getElementById("email").value;
+  const valor = Number(document.getElementById("valor").value);
+  const odd = Number(document.getElementById("odd").value);
+
+  const r = await fetch("http://localhost:3001/bet", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({email, valor, odd})
+  });
+
+  const data = await r.json();
+  document.getElementById("res").innerText =
+    "Saldo: " + data.saldo + " | Ganhou: " + data.ganho;
+}
+</script>
+
+</body>
+</html>
