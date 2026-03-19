@@ -2,53 +2,143 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>uzzy66xbet 💜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portal de Jogos</title>
     <style>
-        body { background: black; color: white; text-align: center; font-family: Arial, sans-serif; padding-top: 50px; }
-        input { margin: 5px; padding: 10px; border-radius: 5px; border: none; width: 80%; max-width: 300px; }
-        button { background: #8a2be2; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        button:hover { background: #a042ff; }
-        #res { margin-top: 20px; font-weight: bold; font-size: 1.2em; }
+        /* Estilos Gerais */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Fundo escuro moderno */
+            color: white;
+        }
+
+        /* Menu Superior */
+        header {
+            background-color: #1f1f1f;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
+        }
+
+        .logo { font-size: 24px; font-weight: bold; color: #00ff88; }
+
+        /* Banner de Destaque */
+        .hero {
+            width: 90%;
+            height: 200px;
+            margin: 20px auto;
+            background: linear-gradient(45deg, #6200ea, #03dac6);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Grade de Jogos */
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        h2 { margin-top: 30px; }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid #333;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            border-color: #00ff88;
+        }
+
+        .game-thumb {
+            width: 100%;
+            height: 150px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .game-info {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Menu Inferior (Mobile Style) */
+        nav.bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #1f1f1f;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top: 1px solid #333;
+        }
+
+        .nav-item { color: #bbb; text-decoration: none; font-size: 12px; }
     </style>
 </head>
 <body>
 
-    <h1 style="color:purple">uzzy66xbet 💜</h1>
-    
-    <input id="email" type="email" placeholder="Seu e-mail"><br>
-    <input id="valor" type="number" placeholder="Valor da aposta"><br>
-    <input id="odd" type="number" placeholder="Odd (Ex: 2.0)"><br>
+    <header>
+        <div class="logo">GamerZone</div>
+        <button style="background:#00ff88; border:none; padding:8px 15px; border-radius:5px; font-weight:bold;">Login</button>
+    </header>
 
-    <button onclick="apostar()">Apostar</button>
+    <div class="hero">
+        <h1>Jogue os Melhores Jogos Grátis!</h1>
+    </div>
 
-    <p id="res"></p>
+    <div class="container">
+        <h2>Populares</h2>
+        <div class="game-grid">
+            <div class="game-card">
+                <div class="game-thumb">🚀</div>
+                <div class="game-info">Space Adventure</div>
+            </div>
+            <div class="game-card">
+                <div class="game-thumb">⚽</div>
+                <div class="game-info">Super Soccer</div>
+            </div>
+            <div class="game-card">
+                <div class="game-thumb">🧩</div>
+                <div class="game-info">Puzzle Master</div>
+            </div>
+            <div class="game-card">
+                <div class="game-thumb">🏎️</div>
+                <div class="game-info">Turbo Racing</div>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        function apostar() {
-            const email = document.getElementById("email").value;
-            const valor = document.getElementById("valor").value;
-            const odd = document.getElementById("odd").value;
-            const res = document.getElementById("res");
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item">Início</a>
+        <a href="#" class="nav-item">Categorias</a>
+        <a href="#" class="nav-item">Perfil</a>
+    </nav>
 
-            if (!email || !valor || !odd) {
-                res.style.color = "yellow";
-                res.innerText = "⚠️ Preencha todos os campos!";
-                return;
-            }
-
-            // Simulação de aposta (Ganha 50% das vezes)
-            const ganhou = Math.random() > 0.5;
-            
-            if (ganhou) {
-                const premio = (valor * odd).toFixed(2);
-                res.style.color = "#00ff00";
-                res.innerText = "✅ VOCÊ GANHOU! R$ " + premio;
-            } else {
-                res.style.color = "#ff4444";
-                res.innerText = "❌ VOCÊ PERDEU! Tente novamente.";
-            }
-        }
-    </script>
 </body>
 </html>
+
 
