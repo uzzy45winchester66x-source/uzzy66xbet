@@ -3,44 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uzzy Games | Cyber Admin Edition</title>
+    <title>Uzzy Games | Cyber Action</title>
     <style>
         :root { --neon-blue: #00ffff; --neon-pink: #ff00ff; --cyber-black: #050505; --gold: #f1c40f; }
         body { background: var(--cyber-black); color: white; font-family: 'Courier New', monospace; margin: 0; overflow-x: hidden; }
         
-        /* Background Cyberpunk Estático */
         .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
                background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80');
                background-size: cover; z-index: -1; }
 
-        /* TELA DE LOGIN */
         #login-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000;
                         display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; }
         
         .login-box { border: 2px solid var(--neon-pink); padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 0 20px var(--neon-pink); }
         .cyber-input { background: transparent; border: 1px solid var(--neon-blue); color: var(--neon-blue); padding: 12px; margin: 10px; width: 280px; outline: none; }
-        .btn-glow { background: var(--neon-pink); border: none; color: white; padding: 15px 30px; cursor: pointer; font-weight: bold; text-transform: uppercase; }
+        .btn-glow { background: var(--neon-pink); border: none; color: white; padding: 15px 30px; cursor: pointer; font-weight: bold; text-transform: uppercase; border-radius: 5px; }
 
-        /* SITE PRINCIPAL */
         #main-site { display: none; padding: 20px; }
-        header { border-bottom: 2px solid var(--neon-blue); padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        header { border-bottom: 2px solid var(--neon-blue); padding: 20px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); }
         .logo { font-size: 2.5rem; text-shadow: 0 0 10px var(--neon-pink); font-weight: bold; }
 
-        /* STATUS BAR */
         .wallet-info { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; border-left: 5px solid var(--gold); }
 
-        /* JOGOS */
-        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 30px 0; }
-        .game-card { background: rgba(0,0,0,0.6); border: 1px solid var(--neon-blue); padding: 15px; text-align: center; transition: 0.3s; }
-        .game-card:hover { border-color: var(--neon-pink); transform: translateY(-5px); }
+        /* AREA DE JOGOS REAIS */
+        .game-section { margin: 30px 0; }
+        .game-container { background: #111; border: 2px solid var(--neon-blue); border-radius: 10px; overflow: hidden; margin-bottom: 30px; }
+        .game-header { background: var(--neon-blue); color: black; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; }
+        iframe { width: 100%; height: 450px; border: none; }
+        
+        .reward-button { background: var(--gold); color: black; border: none; padding: 15px; width: 100%; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+        .reward-button:hover { background: white; }
 
         /* LOJA */
-        .market { border-top: 3px solid var(--neon-pink); padding-top: 30px; }
+        .market { border-top: 3px solid var(--neon-pink); padding-top: 30px; margin-top: 50px; }
         .market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .item-card { background: #111; border: 1px solid var(--gold); padding: 20px; text-align: center; border-radius: 10px; }
+        .item-card { background: rgba(0,0,0,0.8); border: 1px solid var(--gold); padding: 20px; text-align: center; border-radius: 10px; }
         .price-tag { color: var(--gold); font-size: 1.3rem; margin: 10px 0; }
         
-        /* PAINEL ADM */
         #admin-panel { display: none; background: #200; border: 2px solid red; padding: 20px; margin-top: 40px; }
     </style>
 </head>
@@ -51,7 +50,7 @@
 <div id="login-screen">
     <div class="login-box">
         <h1 style="color:var(--neon-blue)">UZZY GAMES</h1>
-        <p>SISTEMA CYBERNET v2.0</p>
+        <p>SISTEMA CYBERNET v3.0</p>
         <input type="text" id="userInput" class="cyber-input" placeholder="Usuário ou Telefone">
         <input type="password" id="passInput" class="cyber-input" placeholder="Senha">
         <br>
@@ -67,39 +66,54 @@
         </div>
     </header>
 
-    <div class="game-grid">
-        <script>
-            for(let i=1; i<=50; i++) {
-                document.write(`<div class="game-card"><h3>LVL ${i}</h3><button onclick="addUC(2)" style="background:var(--neon-blue); border:none; padding:8px; cursor:pointer;">JOGAR (+2 UC)</button></div>`);
-            }
-        </script>
+    <div class="game-section">
+        <h2 style="color: var(--neon-blue);">🕹️ TERMINAL DE JOGOS (STICKMAN & SNAKE)</h2>
+        
+        <div class="game-container">
+            <div class="game-header">
+                <span>🏹 STICKMAN ARCHER - MODO DIFÍCIL</span>
+                <span>STATUS: ONLINE</span>
+            </div>
+            <iframe src="https://www.gamevial.com/games/stickmanarchery/index.php"></iframe>
+            <button class="reward-button" onclick="addUC(2)">CONCLUÍ FASE NO PALITO! (+2 UC)</button>
+        </div>
+
+        <div class="game-container">
+            <div class="game-header">
+                <span>🐍 CYBER SNAKE - CLASSIC</span>
+                <span>STATUS: ONLINE</span>
+            </div>
+            <iframe src="https://poki.com/pt/g/blocky-snakes"></iframe>
+            <button class="reward-button" onclick="addUC(2)">BATI O RECORDE NA COBRA! (+2 UC)</button>
+        </div>
     </div>
 
     <div class="market">
-        <h2 style="color:var(--neon-pink)">🛒 CYBER MARKET - RESGATE</h2>
+        <h2 style="color:var(--neon-pink)">🛒 CYBER MARKET - RESGATE SEUS PRÊMIOS</h2>
         <div class="market-grid">
             <div class="item-card">
                 <h3>🍎 BLOX FRUITS MAX</h3>
+                <p>Conta Roblox Full Farmada</p>
                 <p class="price-tag">100.000,00 UC</p>
-                <button onclick="buy('Blox Fruits Max')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR</button>
+                <button onclick="buy('Blox Fruits Max')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR COM ADM</button>
             </div>
             <div class="item-card">
                 <h3>💸 PIX R$ 10,00</h3>
                 <p class="price-tag">100.000,00 UC</p>
-                <button onclick="buy('Pix R$ 10')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR</button>
+                <button onclick="buy('Pix R$ 10')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR PIX</button>
             </div>
             <div class="item-card">
                 <h3>💸 PIX R$ 25,00</h3>
                 <p class="price-tag">500.000,00 UC</p>
-                <button onclick="buy('Pix R$ 25')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR</button>
+                <button onclick="buy('Pix R$ 25')" class="btn-glow" style="background:var(--gold); color:black">RESGATAR PIX</button>
             </div>
         </div>
     </div>
 
     <div id="admin-panel">
-        <h2 style="color:red">☢️ TERMINAL DO ADMINISTRADOR</h2>
-        <p>Saldo Mestre: 1.000.000.000.000.000.000.000.000.00 UC</p>
-        <button onclick="localStorage.clear(); location.reload();" style="background:white; color:black; padding:10px;">RESETAR SISTEMA</button>
+        <h2 style="color:red">☢️ TERMINAL DO ADMINISTRADOR: UZZY</h2>
+        <p>Saldo Mestre ativado para uzz66x</p>
+        <button onclick="localStorage.clear(); location.reload();" style="background:white; color:black; padding:10px;">RESETAR TODAS AS MOEDAS</button>
     </div>
 </div>
 
@@ -110,7 +124,7 @@
         const u = document.getElementById('userInput').value;
         const p = document.getElementById('passInput').value;
 
-        // SEU LOGIN DE ADM
+        // SEU LOGIN DE ADM CONFIGURADO
         if(u === 'uzzy66x' && p === '299119') {
             currentCoins = 1000000000000000000000000;
             document.getElementById('admin-panel').style.display = 'block';
@@ -118,7 +132,7 @@
         } else if(u !== "" && p !== "") {
             enterSite(u);
         } else {
-            alert("Erro de autenticação!");
+            alert("Acesso Negado: Usuário ou Senha inválidos.");
         }
     }
 
@@ -132,6 +146,7 @@
     function addUC(amt) {
         currentCoins += amt;
         updateUI();
+        alert("Sincronizando com CyberBank... +2 UC Adicionadas!");
     }
 
     function updateUI() {
@@ -140,7 +155,7 @@
     }
 
     function buy(item) {
-        alert(`Pedido de ${item} enviado ao ADM Uzzy!\nEnvie o print do seu saldo para confirmar.`);
+        alert(`SOLICITAÇÃO DE RESGATE: ${item}\n\nSeu saldo foi verificado. Tire um print e envie para o ADM Uzzy no WhatsApp/Discord para receber seu prêmio!`);
     }
 </script>
 
