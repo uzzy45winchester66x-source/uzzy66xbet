@@ -1,34 +1,54 @@
 <!DOCTYPE html>
-<html>
-<body style="background:black;color:white;text-align:center">
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>uzzy66xbet 💜</title>
+    <style>
+        body { background: black; color: white; text-align: center; font-family: Arial, sans-serif; padding-top: 50px; }
+        input { margin: 5px; padding: 10px; border-radius: 5px; border: none; width: 80%; max-width: 300px; }
+        button { background: #8a2be2; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+        button:hover { background: #a042ff; }
+        #res { margin-top: 20px; font-weight: bold; font-size: 1.2em; }
+    </style>
+</head>
+<body>
 
-<h1 style="color:purple">uzzy66xbet 💜</h1>
+    <h1 style="color:purple">uzzy66xbet 💜</h1>
+    
+    <input id="email" type="email" placeholder="Seu e-mail"><br>
+    <input id="valor" type="number" placeholder="Valor da aposta"><br>
+    <input id="odd" type="number" placeholder="Odd (Ex: 2.0)"><br>
 
-<input id="email" placeholder="email"><br><br>
-<input id="valor" placeholder="valor"><br><br>
-<input id="odd" placeholder="odd"><br><br>
+    <button onclick="apostar()">Apostar</button>
 
-<button onclick="apostar()">Apostar</button>
+    <p id="res"></p>
 
-<p id="res"></p>
+    <script>
+        function apostar() {
+            const email = document.getElementById("email").value;
+            const valor = document.getElementById("valor").value;
+            const odd = document.getElementById("odd").value;
+            const res = document.getElementById("res");
 
-<script>
-async function apostar() {
-  const email = document.getElementById("email").value;
-  const valor = Number(document.getElementById("valor").value);
-  const odd = Number(document.getElementById("odd").value);
+            if (!email || !valor || !odd) {
+                res.style.color = "yellow";
+                res.innerText = "⚠️ Preencha todos os campos!";
+                return;
+            }
 
-  const r = await fetch("http://localhost:3001/bet", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({email, valor, odd})
-  });
-
-  const data = await r.json();
-  document.getElementById("res").innerText =
-    "Saldo: " + data.saldo + " | Ganhou: " + data.ganho;
-}
-</script>
-
+            // Simulação de aposta (Ganha 50% das vezes)
+            const ganhou = Math.random() > 0.5;
+            
+            if (ganhou) {
+                const premio = (valor * odd).toFixed(2);
+                res.style.color = "#00ff00";
+                res.innerText = "✅ VOCÊ GANHOU! R$ " + premio;
+            } else {
+                res.style.color = "#ff4444";
+                res.innerText = "❌ VOCÊ PERDEU! Tente novamente.";
+            }
+        }
+    </script>
 </body>
 </html>
+
