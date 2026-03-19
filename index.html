@@ -3,79 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Game Hub</title>
+    <title>Uzzy Games | One Piece Edition</title>
     <style>
-        body { background-color: #0d1117; color: #ffffff; font-family: sans-serif; margin: 0; padding: 15px; }
-        h2 { border-left: 5px solid #00ff88; padding-left: 10px; font-size: 1rem; margin: 25px 0 12px 0; text-transform: uppercase; color: #00ff88; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 12px; }
-        .row-destaque { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        
-        .card { background: #161b22; border-radius: 12px; overflow: hidden; position: relative; text-decoration: none; color: white; display: block; border: 1px solid #30363d; }
-        .card img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 100px; background: #21262d; }
-        
-        .card-big { height: 160px; border: 2px solid #00ff88; }
-        .card-small { height: 105px; }
-        
-        .info { position: absolute; bottom: 0; background: rgba(0,0,0,0.8); width: 100%; text-align: center; font-size: 0.6rem; padding: 5px 0; }
-        .tag { position: absolute; top: 5px; left: 5px; background: #ff0055; font-size: 0.5rem; padding: 2px 5px; border-radius: 4px; font-weight: bold; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Papel de parede One Piece no fundo */
+            background: url('https://wallpaperaccess.com/full/17351.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.75); /* Escurece o fundo para destacar os jogos */
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            border-bottom: 4px solid #f1c40f;
+            margin-bottom: 30px;
+        }
+
+        /* Nome do site decorado */
+        .logo-uzzy {
+            font-size: 3.5rem;
+            color: #f1c40f;
+            text-shadow: 4px 4px #c0392b, 0 0 15px #f1c40f;
+            margin: 0;
+            letter-spacing: 5px;
+        }
+
+        .one-piece-icons {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Efeito ao passar o mouse */
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #f1c40f;
+            box-shadow: 0 10px 20px rgba(241, 196, 15, 0.4);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .game-card .title {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .category-title {
+            grid-column: 1 / -1;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+            color: #ecf0f1;
+        }
     </style>
 </head>
 <body>
 
-    <h2>🔥 EM DESTAQUE</h2>
-    <div class="row-destaque">
-        <a href="https://www.crazygames.com.br/jogos/minecraft-classic" class="card card-big">
-            <span class="tag">OFICIAL</span>
-            <img src="https://images.crazygames.com/minecraft-classic/20200813134608/minecraft-classic-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=422&h=237&fit=crop">
-            <div class="info">Minecraft</div>
-        </a>
-        <a href="https://cryzen.io" class="card card-big">
-            <span class="tag">FPS</span>
-            <img src="https://images.crazygames.com/cryzen-io/20231121110825/cryzen-io-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=422&h=237&fit=crop">
-            <div class="info">CS Mobile</div>
-        </a>
+<div class="container">
+    <header>
+        <div class="one-piece-icons">⚓ 🏴‍☠️ 🍖</div>
+        <h1 class="logo-uzzy">UZZY GAMES</h1>
+        <p>A Grande Era dos Jogos começou!</p>
+    </header>
+
+    <div class="game-grid">
+        
+        <div class="category-title">🎯 Jogos de Arco e Ação (Seus Prints)</div>
+        
+        <div class="game-card">
+            <img src="https://img.crazygames.com/ragdoll-throw-challenge/20220926101135/ragdoll-throw-challenge-cover.png" alt="Ragdoll Throw">
+            <div class="title">Ragdoll Throw</div>
+        </div>
+        
+        <div class="game-card">
+            <img src="https://img.crazygames.com/herobrine-vs-monster-school/20220914093842/herobrine-vs-monster-school-cover.png" alt="Herobrine vs Monster School">
+            <div class="title">Monster School</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://img.crazygames.com/love-archer/20230124101532/love-archer-cover.png" alt="Love Archer">
+            <div class="title">Love Archer</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://img.crazygames.com/archery-master/20220822101532/archery-master-cover.png" alt="Archery Master">
+            <div class="title">Archery Master</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://img.crazygames.com/stickman-archery/20220822101532/stickman-archery-cover.png" alt="Last Archer">
+            <div class="title">Last Archer</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://img.crazygames.com/bowman/20220822101532/bowman-cover.png" alt="Bowman">
+            <div class="title">Bowman</div>
+        </div>
+
+        <div class="category-title">🌟 Favoritos do Uzzy</div>
+
+        <div class="game-card">
+            <img src="[attachment_1](attachment)" alt="Minecraft">
+            <div class="title">Minecraft World</div>
+        </div>
+
+        <div class="game-card">
+            <img src="[attachment_0](attachment)" alt="Mario">
+            <div class="title">Super Mario Art</div>
+        </div>
+
+        <div class="game-card">
+            <img src="[attachment_2](attachment)" alt="Sonic">
+            <div class="title">Sonic Speed</div>
+        </div>
+
+        <div class="game-card">
+            <img src="https://img.crazygames.com/noob-vs-pro-boss-item/20220822101532/noob-vs-pro-boss-item-cover.png" alt="Noob vs Monsters">
+            <div class="title">Noob VS Monsters</div>
+        </div>
+
     </div>
 
-    <h2>🏴‍☠️ ANIME & RPG</h2>
-    <div class="grid">
-        <a href="https://www.miniplay.com.br/jogo/one-piece-ultimate-fight-1-7" class="card card-small">
-            <img src="https://m.media-amazon.com/images/I/81S67Inp3ZL._AC_UF1000,1000_QL80_.jpg">
-            <div class="info">One Piece</div>
-        </a>
-        <a href="https://www.crazygames.com.br/jogos/dynamons-world" class="card card-small">
-            <img src="https://images.crazygames.com/dynamons-world/20231018111710/dynamons-world-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
-            <div class="info">Dynamons</div>
-        </a>
-    </div>
-
-    <h2>🏹 ARQUEIROS DE PALITO</h2>
-    <div class="grid">
-        <a href="https://www.crazygames.com.br/jogos/the-archers-2" class="card card-small">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/4c/76/8a/4c768a41-6e3e-63f5-763d-0e31945f0947/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-10.png/512x512bb.jpg">
-            <div class="info">Archers 2</div>
-        </a>
-        <a href="https://www.crazygames.com.br/jogos/stickman-archero-fight" class="card card-small">
-            <img src="https://images.crazygames.com/stickman-archero-fight/20220524103135/stickman-archero-fight-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
-            <div class="info">Stick Archero</div>
-        </a>
-    </div>
-
-    <h2>🕹️ JOGOS SIMPLES</h2>
-    <div class="grid">
-        <a href="https://www.crazygames.com.br/jogos/google-snake" class="card card-small">
-            <img src="https://images.crazygames.com/google-snake/20231123114008/google-snake-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
-            <div class="info">Cobrinha</div>
-        </a>
-        <a href="https://www.crazygames.com.br/jogos/moto-x3m" class="card card-small">
-            <img src="https://images.crazygames.com/moto-x3m/20240520101851/moto-x3m-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
-            <div class="info">Moto X3M</div>
-        </a>
-        <a href="https://www.crazygames.com.br/jogos/uno-online" class="card card-small">
-            <img src="https://images.crazygames.com/uno-online/20240118091807/uno-online-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
-            <div class="info">Uno</div>
-        </a>
-    </div>
+    <footer style="text-align: center; margin-top: 50px; color: #7f8c8d;">
+        <p>Uzzy Games © 2026 - Rumo ao One Piece!</p>
+    </footer>
+</div>
 
 </body>
 </html>
