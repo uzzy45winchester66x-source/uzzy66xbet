@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Arcade Ultra</title>
+    <title>Uzzy Games | Official Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,206 +22,186 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* Animação de Fundo */
-        body::before {
-            content: "";
+        /* --- TELA DE LOGIN --- */
+        #auth-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a0033 0%, transparent 80%);
-            z-index: -1;
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: var(--green);
-            text-shadow: 0 0 10px var(--green), 0 0 20px var(--green);
-            margin: 40px 0 10px 0;
-            animation: pulse 2s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { opacity: 0.8; text-shadow: 0 0 10px var(--green); }
-            to { opacity: 1; text-shadow: 0 0 25px var(--green), 0 0 40px var(--purple); }
-        }
-
-        /* Área de Login */
-        .auth-section {
-            background: rgba(20, 20, 20, 0.8);
-            padding: 20px 40px;
-            border-radius: 50px;
-            border: 1px solid var(--purple);
-            box-shadow: 0 0 15px var(--purple);
-            margin-bottom: 50px;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 20px;
-            backdrop-filter: blur(10px);
         }
 
-        .google-btn {
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: sans-serif;
-            transition: 0.3s;
-        }
-
-        .google-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,255,255,0.4);
-        }
-
-        /* Grid de Jogos */
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            width: 90%;
-            max-width: 1100px;
-            padding-bottom: 50px;
-        }
-
-        .game-card {
+        .auth-card {
             background: var(--card);
-            border-radius: 20px;
-            border: 2px solid #222;
             padding: 30px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .game-card:hover {
-            border-color: var(--purple);
+            border-radius: 20px;
+            border: 2px solid var(--purple);
             box-shadow: 0 0 30px var(--purple);
-            transform: scale(1.05);
+            width: 350px;
+            text-align: center;
         }
 
-        .game-card i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
+        .auth-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab-btn { flex: 1; background: none; border: 1px solid var(--purple); color: white; padding: 8px; cursor: pointer; border-radius: 5px; }
+        .tab-btn.active { background: var(--purple); box-shadow: 0 0 10px var(--purple); }
+        .auth-input { width: 100%; padding: 12px; margin: 10px 0; background: #1a1a1a; border: 1px solid #333; border-radius: 8px; color: white; box-sizing: border-box; }
+        .btn-confirm { width: 100%; padding: 12px; background: var(--green); border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px; font-family: 'Orbitron'; }
+
+        /* --- HEADER --- */
+        header { text-align: center; padding: 30px; }
+        .logo { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; color: var(--green); text-shadow: 0 0 20px var(--green); margin: 0; letter-spacing: 5px; }
+        
+        /* --- MONETIZAÇÃO & RANKING --- */
+        .ad-container {
+            width: 90%; max-width: 800px;
+            height: 90px; background: #000;
+            border: 1px dashed var(--purple);
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 10px; margin-bottom: 20px; text-align: center;
         }
 
-        .game-card h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--green);
-            margin: 10px 0;
-        }
-
-        .btn-play {
-            background: transparent;
+        .ranking-panel {
+            background: var(--card);
+            width: 90%; max-width: 400px;
             border: 1px solid var(--green);
-            color: var(--green);
-            padding: 10px 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-top: 15px;
-            transition: 0.3s;
+            border-radius: 10px; padding: 15px;
+            margin-bottom: 30px;
         }
 
-        .btn-play:hover {
-            background: var(--green);
-            color: black;
-            box-shadow: 0 0 20px var(--green);
-        }
+        /* --- GRID DE JOGOS --- */
+        .section-title { font-family: 'Orbitron'; color: var(--purple); width: 90%; max-width: 1100px; border-bottom: 2px solid var(--purple); padding-bottom: 10px; margin-top: 20px; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; width: 90%; max-width: 1100px; margin-bottom: 50px; }
+        .game-card { background: var(--card); border-radius: 15px; border: 1px solid #333; overflow: hidden; transition: 0.4s; }
+        .game-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: 0 0 20px var(--green); }
+        .card-img { width: 100%; height: 160px; background-size: cover; background-position: center; }
+        .card-body { padding: 15px; text-align: center; }
+        .btn-play { background: transparent; border: 1px solid var(--purple); color: var(--purple); padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+        .btn-play:hover { background: var(--purple); color: white; }
 
-        .stats {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 10px;
-        }
-
-        #user-display {
-            font-weight: bold;
-            color: var(--green);
-        }
+        /* --- JANELA DO JOGO --- */
+        #game-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; flex-direction: column; }
+        .close-btn { color: var(--green); font-size: 25px; cursor: pointer; align-self: flex-end; padding: 20px; font-family: 'Orbitron'; }
     </style>
 </head>
 <body>
 
-    <h1>Neon Arcade</h1>
-
-    <div class="auth-section">
-        <span id="status-text">Sincronize sua conta:</span>
-        <button class="google-btn" onclick="handleLogin()">
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18">
-            Entrar com Google
-        </button>
-        <span id="user-display"></span>
+    <div id="auth-overlay">
+        <div class="auth-card">
+            <h2 style="font-family:'Orbitron'; color:var(--green)">UZZY ACCESS</h2>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('user')">Usuário</button>
+                <button class="tab-btn" onclick="switchTab('phone')">Telefone</button>
+            </div>
+            <div id="user-fields">
+                <input type="text" id="username" class="auth-input" placeholder="Seu nome">
+            </div>
+            <div id="phone-fields" style="display: none;">
+                <input type="tel" id="phone" class="auth-input" placeholder="(00) 90000-0000">
+            </div>
+            <button class="btn-confirm" onclick="finishAuth()">ENTRAR NO ARCADE</button>
+        </div>
     </div>
 
+    <header>
+        <h1 class="logo">UZZY GAMES</h1>
+        <p id="welcome-msg" style="color: var(--purple); font-weight: bold;"></p>
+    </header>
+
+    <div class="ad-container">
+        <div>
+            <span style="font-size: 10px; color: #444;">ADVERTISEMENT</span>
+            <p style="margin: 5px 0; color: var(--green);">VIRE UZZY PRO E GANHE MOEDAS DOBRADAS!</p>
+            <button style="background: var(--purple); border:none; color:white; padding: 3px 10px; border-radius: 5px; cursor:pointer;">REMOVER ADS</button>
+        </div>
+    </div>
+
+    <div class="ranking-panel">
+        <h3 style="color:var(--green); text-align:center; margin-top:0;">🏆 RANKING GLOBAL</h3>
+        <div style="display:flex; justify-content:space-between; font-size: 0.9rem;">
+            <span>1. UzzyMaster</span> <span>15k pts</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size: 0.9rem; margin-top:5px;">
+            <span>2. CyberGhost</span> <span>12k pts</span>
+        </div>
+    </div>
+
+    <h2 class="section-title">🛡️ RPG & AVENTURA</h2>
     <div class="container">
         <div class="game-card">
-            <i>📝</i>
-            <h2>STOP!</h2>
-            <p>Seja o mais rápido nas categorias.</p>
-            <div class="stats">Recorde: <span id="stop-score">0</span> pts</div>
-            <button class="btn-play" onclick="play('Stop')">Jogar</button>
+            <div class="card-img" style="background-image: url('https://img.itch.zone/aW1nLzU4MDIxNDUucG5n/315x250%23c/6H%2F6sH.png');"></div>
+            <div class="card-body">
+                <h3>Pigeon Ascent (RPG)</h3>
+                <button class="btn-play" onclick="openGame('https://itch.io/embed-upload/3762696?color=333333')">JOGAR AGORA</button>
+            </div>
         </div>
+    </div>
 
+    <h2 class="section-title">🕹️ CLÁSSICOS ARCADE</h2>
+    <div class="container">
         <div class="game-card">
-            <i>💣</i>
-            <h2>BOMBERMAN</h2>
-            <p>Derrube os obstáculos e vença.</p>
-            <div class="stats">Vitórias: <span id="bomb-score">0</span></div>
-            <button class="btn-play" onclick="play('Bomberman')">Jogar</button>
+            <div class="card-img" style="background-image: url('https://static.f-list.net/images/charicons/pacman.png');"></div>
+            <div class="card-body">
+                <h3>Pac-Man</h3>
+                <button class="btn-play" onclick="openGame('https://google.com/logos/2010/pacman10-i.html')">JOGAR AGORA</button>
+            </div>
         </div>
+        <div class="game-card">
+            <div class="card-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Bomberman_Official_Artwork.png/220px-Bomberman_Official_Artwork.png');"></div>
+            <div class="card-body">
+                <h3>Bomberman</h3>
+                <button class="btn-play" onclick="openGame('https://www.retrogames.cc/embed/41724-bomberman-world.html')">JOGAR AGORA</button>
+            </div>
+        </div>
+    </div>
 
-        <div class="game-card">
-            <i>🍄</i>
-            <h2>MARIO BROS</h2>
-            <p>Pule, pegue moedas e salve a princesa.</p>
-            <div class="stats">Moedas: <span id="mario-score">0</span></div>
-            <button class="btn-play" onclick="play('Mario')">Jogar</button>
-        </div>
+    <div id="game-overlay">
+        <span class="close-btn" onclick="closeGame()">[ FECHAR X ]</span>
+        <iframe id="game-box" src="" style="width:100%; height:90%; border:none;" allowfullscreen></iframe>
     </div>
 
     <script>
-        // Lógica de Login Simulado
-        function handleLogin() {
-            const name = prompt("Qual seu nome de usuário?");
-            if(name) {
-                document.getElementById('status-text').innerText = "Logado como:";
-                document.getElementById('user-display').innerText = name;
-                alert("Sucesso! Agora suas vitórias serão salvas na nuvem.");
+        function switchTab(type) {
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            if(type === 'user') {
+                document.getElementById('user-fields').style.display = 'block';
+                document.getElementById('phone-fields').style.display = 'none';
+                btns[0].classList.add('active');
+            } else {
+                document.getElementById('user-fields').style.display = 'none';
+                document.getElementById('phone-fields').style.display = 'block';
+                btns[1].classList.add('active');
             }
         }
 
-        // Lógica de Jogar (Simulação)
-        function play(gameName) {
-            alert("Iniciando o engine do " + gameName + "...\nPrepare seus reflexos!");
-            
-            // Simular ganho de pontos
-            if(gameName === 'Mario') {
-                let score = document.getElementById('mario-score');
-                score.innerText = parseInt(score.innerText) + 10;
-            } else if(gameName === 'Bomberman') {
-                let score = document.getElementById('bomb-score');
-                score.innerText = parseInt(score.innerText) + 1;
-            } else {
-                let score = document.getElementById('stop-score');
-                score.innerText = parseInt(score.innerText) + 50;
+        function finishAuth() {
+            const user = document.getElementById('username').value || document.getElementById('phone').value || "Player";
+            localStorage.setItem('uzzyUser', user);
+            document.getElementById('auth-overlay').style.display = 'none';
+            document.getElementById('welcome-msg').innerText = "Bem-vindo, " + user + "!";
+        }
+
+        window.onload = () => {
+            const saved = localStorage.getItem('uzzyUser');
+            if(saved) {
+                document.getElementById('auth-overlay').style.display = 'none';
+                document.getElementById('welcome-msg').innerText = "Bem-vindo de volta, " + saved + "!";
             }
+        }
+
+        function openGame(url) {
+            document.getElementById('game-box').src = url;
+            document.getElementById('game-overlay').style.display = 'flex';
+        }
+
+        function closeGame() {
+            document.getElementById('game-box').src = '';
+            document.getElementById('game-overlay').style.display = 'none';
         }
     </script>
 </body>
 </html>
-
-
