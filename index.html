@@ -3,41 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Hub - Arqueiros e Destaques</title>
+    <title>Meu Game Hub</title>
     <style>
-        body { background-color: #0b0e14; color: #ffffff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 15px; }
+        body { background-color: #0d1117; color: #ffffff; font-family: sans-serif; margin: 0; padding: 15px; }
+        h2 { border-left: 5px solid #00ff88; padding-left: 10px; font-size: 1rem; margin: 25px 0 12px 0; text-transform: uppercase; color: #00ff88; }
         
-        /* Títulos */
-        h2 { border-left: 5px solid #00dfa2; padding-left: 10px; font-size: 1rem; margin: 25px 0 12px 0; text-transform: uppercase; color: #00dfa2; }
-        
-        /* Grades */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 12px; }
         .row-destaque { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
         
-        /* Estilo dos Cards */
-        .card { background: #1a1f26; border-radius: 15px; overflow: hidden; position: relative; text-decoration: none; color: white; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 1px solid #2d3436; }
-        .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .card { background: #161b22; border-radius: 12px; overflow: hidden; position: relative; text-decoration: none; color: white; display: block; border: 1px solid #30363d; }
+        .card img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 100px; background: #21262d; }
         
-        .card-big { height: 170px; border: 2px solid #00dfa2; }
+        .card-big { height: 160px; border: 2px solid #00ff88; }
         .card-small { height: 105px; }
         
-        /* Legendas e Selos */
-        .info { position: absolute; bottom: 0; background: rgba(0,0,0,0.8); width: 100%; text-align: center; font-size: 0.65rem; padding: 5px 0; font-weight: bold; }
-        .selo { position: absolute; top: 7px; left: 7px; background: #ff006e; font-size: 0.55rem; padding: 2px 6px; border-radius: 5px; font-weight: 900; }
+        .info { position: absolute; bottom: 0; background: rgba(0,0,0,0.8); width: 100%; text-align: center; font-size: 0.6rem; padding: 5px 0; }
+        .tag { position: absolute; top: 5px; left: 5px; background: #ff0055; font-size: 0.5rem; padding: 2px 5px; border-radius: 4px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <h2>🔥 OS MELHORES</h2>
+    <h2>🔥 EM DESTAQUE</h2>
     <div class="row-destaque">
-        <a href="https://pt.poki.com/g/minecraft-classic" class="card card-big">
-            <span class="selo">OFICIAL</span>
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/9820f4c029334d5f2252a16086d75c3d.png">
+        <a href="https://www.crazygames.com.br/jogos/minecraft-classic" class="card card-big">
+            <span class="tag">OFICIAL</span>
+            <img src="https://images.crazygames.com/minecraft-classic/20200813134608/minecraft-classic-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=422&h=237&fit=crop">
             <div class="info">Minecraft</div>
         </a>
-        <a href="https://pt.poki.com/g/cryzen-io" class="card card-big">
-            <span class="selo">FPS</span>
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/87504f793b8d141e176dfa8118029969.png">
+        <a href="https://cryzen.io" class="card card-big">
+            <span class="tag">FPS</span>
+            <img src="https://images.crazygames.com/cryzen-io/20231121110825/cryzen-io-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=422&h=237&fit=crop">
             <div class="info">CS Mobile</div>
         </a>
     </div>
@@ -45,44 +40,40 @@
     <h2>🏴‍☠️ ANIME & RPG</h2>
     <div class="grid">
         <a href="https://www.miniplay.com.br/jogo/one-piece-ultimate-fight-1-7" class="card card-small">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR07fW_T64-XG_7D8H-2fX9_V77B1G-2XqXQw&s">
+            <img src="https://m.media-amazon.com/images/I/81S67Inp3ZL._AC_UF1000,1000_QL80_.jpg">
             <div class="info">One Piece</div>
         </a>
-        <a href="https://pt.poki.com/g/dynamons-world" class="card card-small">
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/1e6d19e9-e0d0-4966-880c-e2f7b8813739.png">
+        <a href="https://www.crazygames.com.br/jogos/dynamons-world" class="card card-small">
+            <img src="https://images.crazygames.com/dynamons-world/20231018111710/dynamons-world-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
             <div class="info">Dynamons</div>
         </a>
     </div>
 
-    <h2>🏹 OS ARQUEIROS DE PALITO (STICKMAN)</h2>
+    <h2>🏹 ARQUEIROS DE PALITO</h2>
     <div class="grid">
-        <a href="https://pt.poki.com/g/stickman-archero" class="card card-small">
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/46112f45ec468205f448e89445103c80.png">
-            <div class="info">Stick Archero</div>
-        </a>
         <a href="https://www.crazygames.com.br/jogos/the-archers-2" class="card card-small">
             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/4c/76/8a/4c768a41-6e3e-63f5-763d-0e31945f0947/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-10.png/512x512bb.jpg">
-            <div class="info">The Archers 2</div>
+            <div class="info">Archers 2</div>
         </a>
-        <a href="https://pt.poki.com/g/stick-merge" class="card card-small">
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/645b231a473e049755452292f7041797.png">
-            <div class="info">Stick Fusão</div>
+        <a href="https://www.crazygames.com.br/jogos/stickman-archero-fight" class="card card-small">
+            <img src="https://images.crazygames.com/stickman-archero-fight/20220524103135/stickman-archero-fight-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
+            <div class="info">Stick Archero</div>
         </a>
     </div>
 
     <h2>🕹️ JOGOS SIMPLES</h2>
     <div class="grid">
-        <a href="https://pt.poki.com/g/google-snake" class="card card-small">
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/536104278cf052066d4824558223690d.png">
+        <a href="https://www.crazygames.com.br/jogos/google-snake" class="card card-small">
+            <img src="https://images.crazygames.com/google-snake/20231123114008/google-snake-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
             <div class="info">Cobrinha</div>
         </a>
-        <a href="https://pt.poki.com/g/subway-surfers" class="card card-small">
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/f8942b93-8555-4654-8c6f-60768b92b60b.png">
-            <div class="info">Subway Surfers</div>
-        </a>
-        <a href="https://pt.poki.com/g/moto-x3m" class="card card-small">
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2908f092-2303-4638-b789-94b91873e351.png">
+        <a href="https://www.crazygames.com.br/jogos/moto-x3m" class="card card-small">
+            <img src="https://images.crazygames.com/moto-x3m/20240520101851/moto-x3m-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
             <div class="info">Moto X3M</div>
+        </a>
+        <a href="https://www.crazygames.com.br/jogos/uno-online" class="card card-small">
+            <img src="https://images.crazygames.com/uno-online/20240118091807/uno-online-cover?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=215&h=121&fit=crop">
+            <div class="info">Uno</div>
         </a>
     </div>
 
